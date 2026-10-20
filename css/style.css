@@ -1,0 +1,336 @@
+/* ============================================================
+   디자인 토큰 — Apple iPhone 18 Pro 제품 페이지 톤 (Dark Showroom)
+   ============================================================ */
+:root {
+    --color-bg: #000000;
+    --color-bg-alt: #1d1d1f;
+    --color-text: #f5f5f7;
+    --color-text-muted: #86868b;
+    --color-primary: #0071e3;
+    --color-primary-hover: #0077ed;
+    --color-link: #2997ff;
+    --color-hairline: #424245;
+    --font-base: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
+
+    --size-hero: 80px;
+    --size-section: 48px;
+    --size-eyebrow: 21px;
+    --size-lead: 28px;
+    --size-body: 17px;
+    --size-small: 12px;
+
+    --content-width: 980px;
+    --section-pad-y: 120px;
+    --section-pad-x: 24px;
+    --radius-card: 28px;
+    --radius-pill: 980px;
+    --duration: 200ms;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-base);
+    font-size: var(--size-body);
+    font-weight: 400;
+    line-height: 1.59;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+/* ============================================================
+   header — F-01 소개, F-02 GitHub 링크
+   ============================================================ */
+.site-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 600px;
+    padding: 24px var(--section-pad-x) 72px;
+    background-color: var(--color-bg);
+    background-image: radial-gradient(ellipse at 50% 0%, rgba(245, 245, 247, 0.14), rgba(0, 0, 0, 0) 60%);
+}
+
+.site-header nav {
+    order: -1;
+    align-self: flex-end;
+}
+
+.site-header nav a {
+    display: inline-block;
+    padding: 7px 17px;
+    border: 1px solid var(--color-link);
+    border-radius: var(--radius-pill);
+    font-size: 14px;
+    transition: background-color var(--duration), color var(--duration);
+}
+
+.site-header nav a:hover {
+    background-color: var(--color-link);
+    color: var(--color-bg);
+    text-decoration: none;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+.affiliation {
+    order: -1;
+    margin: 0 0 8px;
+    font-size: var(--size-eyebrow);
+    font-weight: 600;
+    color: var(--color-text-muted);
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: var(--size-hero);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+}
+
+.tagline {
+    margin: 12px 0 0;
+    font-size: var(--size-lead);
+    line-height: 1.25;
+}
+
+/* ============================================================
+   section 공통 — 검정 / 흑연색 교대
+   ============================================================ */
+main section {
+    padding: var(--section-pad-y) var(--section-pad-x);
+}
+
+main section:nth-of-type(odd) {
+    background-color: var(--color-bg-alt);
+}
+
+main section > * {
+    max-width: var(--content-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main h2 {
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-size: var(--size-section);
+    font-weight: 600;
+    line-height: 1.19;
+}
+
+/* ============================================================
+   F-03 실적 표 — 둥근 카드
+   ============================================================ */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: var(--radius-card);
+    background-color: var(--color-bg);
+}
+
+caption {
+    caption-side: top;
+    padding-bottom: 16px;
+    text-align: left;
+    color: var(--color-text-muted);
+}
+
+th,
+td {
+    padding: 20px 24px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    font-size: var(--size-small);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-hairline);
+}
+
+tbody tr + tr td {
+    border-top: 1px solid var(--color-hairline);
+}
+
+td:first-child {
+    white-space: nowrap;
+    color: var(--color-text-muted);
+}
+
+/* ============================================================
+   F-04 수강 과목 — 카드 그리드
+   ============================================================ */
+.course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+    padding: 0;
+    list-style: none;
+}
+
+.course-list li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 140px;
+    padding: 24px;
+    border-radius: var(--radius-card);
+    background-color: var(--color-bg-alt);
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.38;
+}
+
+.course-list a::after {
+    content: " ↓";
+}
+
+.course-type {
+    font-size: var(--size-small);
+    font-weight: 400;
+    color: var(--color-text-muted);
+}
+
+/* ============================================================
+   F-05 주차별 링크 — 진행(파랑 채움) / 예정(회색 점선)
+   ============================================================ */
+#weekly {
+    min-height: 100vh;
+}
+
+#weekly:target h2 {
+    animation: target-flash 1.6s ease-out;
+}
+
+@keyframes target-flash {
+    from {
+        color: var(--color-link);
+    }
+
+    to {
+        color: var(--color-text);
+    }
+}
+
+.week-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 0;
+    list-style: none;
+}
+
+.week-list li {
+    border-radius: var(--radius-pill);
+    font-size: 15px;
+}
+
+.week-list .done a {
+    display: block;
+    padding: 10px 22px;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-primary);
+    color: #ffffff;
+    transition: background-color var(--duration);
+}
+
+.week-list .done a:hover {
+    background-color: var(--color-primary-hover);
+    text-decoration: none;
+}
+
+.week-list .planned {
+    padding: 9px 21px;
+    border: 1px dashed var(--color-hairline);
+    color: var(--color-text-muted);
+}
+
+/* ============================================================
+   footer — F-06 최종 수정일
+   ============================================================ */
+.site-footer {
+    padding: 24px var(--section-pad-x);
+    font-size: var(--size-small);
+    color: var(--color-text-muted);
+    background-color: var(--color-bg);
+}
+
+.site-footer p {
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+/* ============================================================
+   반응형 — Apple 브레이크포인트 (1068 / 734)
+   ============================================================ */
+@media (max-width: 1068px) {
+    :root {
+        --size-hero: 64px;
+        --size-section: 40px;
+        --section-pad-y: 96px;
+    }
+}
+
+@media (max-width: 734px) {
+    :root {
+        --size-hero: 48px;
+        --size-section: 32px;
+        --size-lead: 21px;
+        --size-eyebrow: 17px;
+        --section-pad-y: 72px;
+        --section-pad-x: 16px;
+    }
+
+    .site-header {
+        min-height: 480px;
+        padding-bottom: 48px;
+    }
+
+    th,
+    td {
+        padding: 14px 12px;
+    }
+
+    td:first-child {
+        white-space: normal;
+    }
+}
